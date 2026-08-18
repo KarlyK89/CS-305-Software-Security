@@ -1,2 +1,23 @@
-# CS-305-Software-Security
-Portfolio projects and reflections from CS 305 Software Security
+# CS 305 Software Security Portfolio
+
+## Artemis Financial Practices for Secure Software
+
+For this project, I worked with Artemis Financial, a company that creates personalized financial plans for its customers. These plans may involve savings, retirement, investments, and insurance. Because the company works with private financial information, it needed to make its software safer. My job was to improve the application so that information could be checked for unwanted changes, protected while traveling over the internet, and reviewed for known security problems.
+
+One thing I did well was approach security in several different ways instead of relying on one solution. I added a SHA-256 checksum, which works like a digital fingerprint for information. If someone changes the original information, its fingerprint changes too. This makes it easier to recognize when data has been altered. I also set up HTTPS, which protects information as it travels between the application and its users. Finally, I used OWASP Dependency-Check to look for known security issues in the outside software components used by the application.
+
+Secure coding is important because even a small weakness can put customer information at risk. A security incident can also cost a company money, interrupt its services, and damage the trust it has built with its customers. This is especially important for a financial company because customers expect their personal and financial information to remain private. Building security into software helps protect the company, its employees, and the people who use its services.
+
+The most challenging part of this project was learning how certificates, keys, and keystores work together to create a secure connection. At first, these ideas seemed confusing. It helped me to think of the certificate as a digital form of identification for the application. I used Java’s `keytool` to create a self-signed certificate and stored the certificate and its key information in a keystore. Once I saw how these pieces worked together to support HTTPS, the process made much more sense.
+
+I increased security by adding several layers of protection. The SHA-256 checksum helped confirm that information had not changed. The certificate and HTTPS helped protect information while it was being sent. The dependency scan checked the outside software packages used by the application for known problems. Each layer had a different purpose, and together they made the application safer.
+
+In future projects, I would continue using automated security scans, but I would not depend on those scans alone. I would also review the code, test the application, keep its software packages updated, and check trusted security resources for newly discovered problems. When deciding how to handle a vulnerability, I would consider how serious it is, how likely it is to be used in an attack, what information could be affected, and whether an update or safer setting is available.
+
+After making my changes, I tested the application to make sure it was still working correctly. I confirmed that the program started successfully, the secure HTTPS page loaded, and the expected information and SHA-256 checksum appeared on the page. I also ran OWASP Dependency-Check again to look for security concerns.
+
+The dependency scan finished successfully, but it still reported vulnerable software components. This taught me an important lesson: a successful build does not automatically mean that an application is completely secure. The program can work as expected while still containing risks that need attention. In a real work environment, I would review those findings, update or replace vulnerable components when possible, test the application again, and repeat the scan before releasing it.
+
+Some of the resources and practices I found useful were Java, Spring Boot, Eclipse, Java `keytool`, HTTPS, a secure keystore, Maven, and OWASP Dependency-Check. I also learned the value of adding clear comments to code and testing each change as I made it. These habits made the project easier to understand and helped me find problems before moving on to the next step.
+
+I could show future employers my completed Practices for Secure Software Report, the updated application code, the working checksum, the HTTPS setup, and the dependency scan results. These examples demonstrate that I can improve the security of an existing application, test whether it still works, explain technical ideas clearly, and honestly evaluate security results. Most importantly, this project shows that I understand security is not something developers check only once. It requires continued testing, updates, and attention throughout the life of an application.
